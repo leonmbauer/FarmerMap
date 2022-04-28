@@ -25,7 +25,9 @@ public class ListingService {
     //UPDATE
     public Listing updateListing(String id, Listing updatedListing) {
         Listing listing = listingRepository.findById(id).get();
-        listing.setName(updatedListing.getName());
+        listing.setProductName(updatedListing.getProductName());
+        listing.setPrice(updatedListing.getPrice());
+        listing.setAddress(updatedListing.getAddress());
         return listingRepository.save(listing);
     }
 
