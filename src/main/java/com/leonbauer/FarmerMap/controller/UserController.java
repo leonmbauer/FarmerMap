@@ -3,6 +3,9 @@ package com.leonbauer.FarmerMap.controller;
 import com.leonbauer.FarmerMap.models.User;
 import com.leonbauer.FarmerMap.routines.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +35,9 @@ public class UserController {
         return userService.deleteUsers();
     }
 
-    //login
-    @PostMapping("/users/login")
-    public User userLogin(@RequestBody User user) throws Exception {
-        return userService.userLogin(user.getUsername(), user.getPassword());
+    //LOGIN
+    @PostMapping("/users/perform_login")
+    public String userLogin() {
+        return "index";
     }
 }

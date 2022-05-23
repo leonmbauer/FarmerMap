@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface UserRepository extends MongoRepository<User, String> {
     @Query("{username:'?0'}")
-    User findUserByUsername(String name);
+    User findUserByUsername(String username);
+
+    User findByEmail(String email);
 
     @Query(value="{category:'?0'}", fields="{'name' : 1, 'quantity' : 1}")
     List<User> findAll(String category);
